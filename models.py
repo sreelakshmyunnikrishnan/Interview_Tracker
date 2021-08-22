@@ -1,9 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 import datetime
-# from django.db.models.fields import DateField
-# from django.contrib.auth.models import User
-# from django.conf import settings
+
 # Create your models here.
 
 class UserProfile(AbstractUser):
@@ -62,23 +60,3 @@ class Notes(models.Model):
     class Meta:
         db_table = 'note_maker'
        
-
-class Notifications(models.Model):
-    MESSAGE='message'
-    APPLICATION="application"
-    CHOICES=(
-        (MESSAGE,'Message'),
-        (APPLICATION,'Application')
-        )
-    user=models.ForeignKey(UserProfile,on_delete=models.CASCADE, blank=True, null=True,)
-    notification_type=models.CharField(max_length=20,choices=CHOICES)
-    is_read=models.BooleanField(default=False)
-    extra_id=models.IntegerField(null=True,blank=True)
-
-    created_at=models.DateTimeField(auto_now_add=True)
-    created_by=models.ForeignKey(AddInt,on_delete=models.CASCADE, blank=True, null=True,)
-
-
-    class Meta:
-        db_table='notifications'
-        ordering=['-created_at']
