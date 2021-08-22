@@ -3,7 +3,6 @@ from django.db.models import fields
 
 from django.forms.widgets import DateInput, TextInput, Textarea
 from intrack.models import AddInt
-from intrack.models import Notes
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -51,3 +50,7 @@ class NoteForm(forms.ModelForm):
             'note_name': forms.TextInput(attrs={'class':'form-control','placeholder':'Title'}),
             'note_content': forms.Textarea(attrs={'class':'form-control','placeholder':'Enter Notes....'}),
             }
+        
+        
+        
+        
