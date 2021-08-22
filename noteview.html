@@ -1,0 +1,50 @@
+
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="container-lg-sm-md" style="background-image:url({% static 'images/userpage.jpg' %});background-repeat: repeat;background-size:100%;height:auto;color:azure;padding-top:40px;text-align: center;">
+<h1 style="color:white">View Your Notes Here...</h1>
+
+ <div class="container" >
+    <br>
+                <div class="container-lg-sm-md" class="card-columns" >
+
+
+                {% for n in note %}
+
+                <div class="card bg-light">
+                <div class="card-header bg-info">{{n.note_name}}</div>
+                    <p class="card-text text-dark">{{n.note_content}}</p>
+                <div class="card-footer bg-info">{{n.note_date}} <a href="/Delnote/{{n.id}}"><button class="btn btn-success">DELETE</button></a> <a href="/notedit/{{n.id}}"><button class="btn btn-success">EDIT</button></a> </div>
+                </div> 
+                <br>
+                {% endfor %}
+
+                </div>        
+  <br>
+  <br>
+</div>
+<center><a href="/note/" class="btn btn-primary">Add New Record</a>    <a href="/ent/" class="btn btn-warning">Go to Homepage</a></center>  
+</center> 
+
+</body>
+</html> 

@@ -1,0 +1,88 @@
+{% load static %}
+
+<html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="background-image:url({% static 'images/userpage.jpg' %});background-repeat:repeat;background-size:100%;height:1000px;color:black;text-align: center;">
+<center><h1 style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;color:white">Take a Look at the Companies waiting to hire you !!!!</h1></center>
+<br>
+<center><a href="/ent/" class="btn btn-warning">Go to Homepage</a> <a href="/alert/" class="btn btn-danger">Go to Alerts</a></center>
+</center>
+<br>
+</div  class="container">
+<div class="table-responsive-xl">
+    <table class="table table-striped table-light " style="opacity:0.8">
+        <thread>
+        <tr>
+            <!-- <th>User ID</th> -->
+            <th>Company Name</th>
+            <th>Post Applied</th>
+            <th>Company Email</th>
+            <th>Company URL</th>
+            <th>Company Contact</th>
+            <th>Date Applied</th>
+            <th>Interview Date</th>
+            <th>Did the Recruiter Call</th>
+            <th>Interview Rounds Cleared</th>
+            <th>Questions Asked</th>
+            <th>Self Analysis</th>
+            <th>Response Status</th>
+
+
+        </tr>
+        </thread>    
+
+        <TBody>
+            {% for l in ent %}
+            <tr>
+                <!-- <td>{{l.id}}</td> -->
+                <td>{{l.c_name}}</td>
+                <td>{{l.c_post}}</td>
+                <td>{{l.c_email}}</td>
+                <td>{{l.c_url}}</td>
+                <td>{{l.c_contact}}</td>
+                <td>{{l.date_applied}}</td>
+                <td>{{l.scd_date}}</td>
+                <td>{{l.rec_called}}</td>
+                <td>{{l.int_rounds_cleared}}</td>
+                <td>{{l.que_asked}}</td>
+                <td>{{l.self_analysis}}</td>
+                <td>{{l.resp_status}}</td>
+
+               <td>
+                    <a href="/Delete/{{l.id}}" class="btn btn-danger" style="opacity:1">DELETE</a>
+                </td>
+                <td>
+                    <a href="/Edit/{{l.id}}"class="btn btn-success" style="opacity:1">EDIT</a>
+                </td> 
+
+
+            </tr>
+            {% endfor %}
+        </TBody>
+
+    </table>
+    <center><a href="/ent/" class="btn btn-primary">Add New Record</a></center> 
+</div>
+</div>
+</body>
+</html>
